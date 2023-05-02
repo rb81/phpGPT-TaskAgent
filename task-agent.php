@@ -1,6 +1,6 @@
 <?php
 
-require_once("../../phpGPT.php");
+require_once("phpGPT.php");
 
 /**
  * This experiment takes some inspiration from BabyAGI in that ChatGPT is asked
@@ -187,7 +187,7 @@ $reporter->addMessage("user", $prompt);
 $reporter->$curl_timeout = 180; // Default is 90 seconds, but we may need more time...
 
 // We're going to use ParseDown (https://parsedown.org) to output our markdown as HTML beautifully...
-require_once("parsedown/parsedown.php"); $parsedown = new Parsedown(); $parsedown->setSafeMode(true);
+require_once("parsedown.php"); $parsedown = new Parsedown(); $parsedown->setSafeMode(true);
 
 // Submit the final payload to ChatGPT and print the final output...
 echo $parsedown->text($reporter->gpt()->message_content);
